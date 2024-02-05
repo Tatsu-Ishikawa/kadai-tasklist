@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Task;
+import models.Tasks;
 import models.validators.MessageValidator;
 import utils.DBUtil;
 
@@ -41,7 +41,7 @@ public class UpdateServlet extends HttpServlet {
 
             // セッションスコープからメッセージのIDを取得して
             // 該当のIDのメッセージ1件のみをデータベースから取得
-            Task t = em.find(Task.class, (Integer) (request.getSession().getAttribute("message_id")));
+            Tasks t = em.find(Tasks.class, (Integer) (request.getSession().getAttribute("message_id")));
 
             // フォームの内容を各フィールドに上書き
             String title = request.getParameter("title");
